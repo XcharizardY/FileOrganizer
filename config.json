@@ -1,0 +1,17 @@
+{
+    "watch_folders": [
+        "C:/Users/saidm/Downloads"
+    ],
+    "use_chronological": false,
+    "routing_map": {
+        "Images": "C:\\Users\\saidm\\OneDrive\\Pictures",
+        "Documents": "C:\\Users\\saidm\\OneDrive\\Documents",
+        "Spreadsheets": "C:\\Users\\saidm\\OneDrive\\Documents",
+        "Presentations": "C:\\Users\\saidm\\OneDrive\\Documents",
+        "Code": "C:\\Users\\saidm\\OneDrive\\Documents\\VS code",
+        "Archives": "C:\\Users\\saidm\\OneDrive\\Documents",
+        "Videos": "C:\\Users\\saidm\\Videos",
+        "Audio": "C:\\Users\\saidm\\Music"
+    },
+    "sort_by_extension": true
+}

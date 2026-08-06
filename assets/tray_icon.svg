@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Premium 3D Gradients -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1A" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+    <linearGradient id="folderBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C2C" />
+      <stop offset="100%" stop-color="#111111" />
+    </linearGradient>
+    <linearGradient id="fileYellow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFE600" />
+      <stop offset="100%" stop-color="#CC9900" />
+    </linearGradient>
+    <linearGradient id="fileOrange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF9500" />
+      <stop offset="100%" stop-color="#CC5500" />
+    </linearGradient>
+    <linearGradient id="fileRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF3333" />
+      <stop offset="100%" stop-color="#990000" />
+    </linearGradient>
+    <linearGradient id="fileDarkRed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D90022" />
+      <stop offset="100%" stop-color="#660000" />
+    </linearGradient>
+    <linearGradient id="folderFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#333333" />
+      <stop offset="100%" stop-color="#1A1A1A" />
+    </linearGradient>
+  </defs>
+
+  <!-- Base App Background -->
+  <rect width="100" height="100" rx="22" fill="url(#bg)"/>
+
+  <!-- Back of Folder (Matte Black) -->
+  <path d="M 15 28 h 22 l 8 8 h 40 v 49 h -70 z" fill="url(#folderBack)"/>
+
+  <!-- Files - Heights chopped to 28 so they don't poke through the bottom -->
+  <!-- Back File: Yellow -->
+  <rect x="22" y="34" width="56" height="28" rx="3" fill="url(#fileYellow)" transform="rotate(-8 50 75)"/>
+
+  <!-- Middle-Back File: Orange -->
+  <rect x="22" y="38" width="56" height="28" rx="3" fill="url(#fileOrange)" transform="rotate(-3 50 75)"/>
+
+  <!-- Middle-Front File: Red -->
+  <rect x="22" y="42" width="56" height="28" rx="3" fill="url(#fileRed)" transform="rotate(2 50 75)"/>
+
+  <!-- Front File: Dark Red -->
+  <rect x="22" y="46" width="56" height="28" rx="3" fill="url(#fileDarkRed)" transform="rotate(7 50 75)"/>
+
+  <!-- Front Folder Flap (Matte Black with highlight stroke) -->
+  <path d="M 10 52 h 35 l 8 8 h 37 l -4 25 h -72 z" fill="url(#folderFront)"/>
+  <path d="M 10 52 h 35 l 8 8 h 37 l -4 25 h -72 z" fill="none" stroke="#444" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

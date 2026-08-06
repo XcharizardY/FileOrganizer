@@ -1,125 +1,102 @@
-# AI Smart File Organizer
+# FileOrganizerStealth
 
-A desktop application built with **PyQt6** that automatically organizes files, provides smart search functionality, and displays folder analytics in a modern dark-themed interface.
-
----
-
-## Features
-
-### 1. Folder Selection
-
-* Select any directory on your system.
-* Automatically indexes files for fast searching.
-* Displays files with categorized icons.
-
-### 2. Smart Search
-
-* Real-time file search.
-* Fast indexed lookup.
-* Results update instantly as you type.
-
-### 3. Background File Monitoring
-
-* Runs in a separate thread.
-* Watches selected folder for changes.
-* Prevents UI freezing.
-
-### 4. File Analytics
-
-* Displays:
-
-  * Total number of files
-  * Total folder size (MB)
-  * Individual file sizes (KB)
-
-### 5. File Type Recognition
-
-Automatic icon assignment for:
-
-* Images (`.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`)
-* Documents (`.pdf`, `.docx`, `.txt`)
-* Spreadsheets (`.xlsx`, `.csv`)
-* Presentations (`.pptx`)
-* Code files (`.py`, `.js`, `.html`, `.css`, etc.)
-* Archives (`.zip`, `.rar`)
-* Videos (`.mp4`, `.mkv`)
-* Audio (`.mp3`, `.wav`)
-* Executables (`.exe`)
-* Fonts (`.ttf`, `.otf`)
-* Default fallback icon
+A silent, background-running desktop utility built with **PyQt6**[cite: 7] that automatically organizes files across your entire system. Unlike standard file managers, FileOrganizerStealth runs invisibly in the system tray, watching high-traffic directories and instantly routing files to custom local or cloud destinations.
 
 ---
 
-## Project Structure
+## ⚡ Core Features
 
-```
-AI-Smart-File-Organizer/
+### 1. Stealth Operation
+* Runs completely in the background via the Windows system tray.
+* Zero desktop clutter and no persistent open windows.
+* Prevents UI freezing by handling all sorting in an isolated background thread[cite: 7].
+
+### 2. Global File Routing
+* Map specific file categories (Images, Documents, Code, Archives) to entirely different drives or sync folders (like OneDrive).
+* Automatically catches and relocates files the second they land in a watched folder.
+
+### 3. Precision Sorting (Exact File Type)
+* Dynamically generates folders based on exact file extensions.
+* Example: A `.pptx` file dropped in `Downloads` is instantly routed to `OneDrive\Documents\PPTX\`.
+
+### 4. Smart System Scan
+* One-click configuration.
+* Automatically scans your system for standard Windows and OneDrive directories (Pictures, Music, Documents, VS Code projects) and maps them to the routing engine automatically.
+
+### 5. Multi-Directory Monitoring
+* Watch multiple folders (e.g., `Downloads`, `Desktop`, and `Documents`) simultaneously.
+
+### 6. Chronological Sub-Sorting
+* Optional toggle to automatically generate `Year/Month` sub-folders inside your destination directories.
+
+---
+
+## 📂 Architecture & File Structure
+
+```text
+FileOrganizer/
 │
-├── main.py                  # Main GUI application
-├── background_watcher.py    # Folder monitoring logic
-├── search_engine.py         # File indexing and search
-├── analytics.py             # File statistics module
-├── ai_sorter.py             # AI-based file sorting logic
-├── cloud_sync.py            # Cloud integration module
-├── icons/                   # SVG icons for file types
+├── assets/
+│   └── tray_icon.svg            # Professional system tray and app icon
+├── src/
+│   ├── main.py                  # UI Control Panel and System Tray initialization
+│   ├── background_watcher.py    # Multi-folder background monitoring thread
+│   └── ai_sorter.py             # Core logic for routing, collisions, and extensions
+├── config.json                  # Persistent save state for routing maps and toggles
+├── requirements.txt             # Project dependencies
 └── README.md
+
 ```
 
 ---
 
-## Requirements
+## 🛠️ Supported File Types
+
+The engine automatically recognizes and categorizes:
+
+* **Images**: `.png`, `.jpg`, `.jpeg`, `.gif`, `.bmp`, `.webp`, `.svg`, `.heic`, `.tiff`
+* **Documents**: `.pdf`, `.docx`, `.txt`, `.rtf`, `.odt`, `.doc`
+* **Spreadsheets**: `.xlsx`, `.csv`, `.xls`, `.ods`
+* **Presentations**: `.pptx`, `.ppt`, `.odp`
+* **Code files**: `.py`, `.js`, `.html`, `.css`, `.cpp`, `.json`, `.yaml`, `.sql`, etc.
+* **Archives**: `.zip`, `.rar`, `.7z`, `.tar`, `.gz`
+* **Videos**: `.mp4`, `.mkv`, `.avi`, `.mov`, `.wmv`, `.flv`
+* **Audio**: `.mp3`, `.wav`, `.aac`, `.flac`, `.ogg`, `.m4a`
+* **Executables**: `.exe`, `.msi`, `.apk`, `.bat`
+* **Fonts**: `.ttf`, `.otf`
+
+---
+
+## 🚀 Installation & Setup
+
+**Requirements:**
 
 * Python 3.9+
+
+
 * PyQt6
 
-Install dependencies:
+
+
+**1. Install Dependencies:**
 
 ```bash
-pip install PyQt6
+pip install -r requirements.txt
+
 ```
 
----
-
-## How to Run
+**2. Run the Application:**
 
 ```bash
-python main.py
+python src/main.py
+
 ```
 
----
+**3. Configuration:**
 
-## How It Works
+* Right-click the folder icon in your system tray and select **Settings**.
+* Click **Smart Scan** to auto-fill your standard Windows paths.
+* Add your `Downloads` or `Desktop` to the "Folders to Watch" list.
+* Click **Save & Apply**. The app will now silently organize your files in the background.
 
-1. User selects a folder.
-2. The folder is indexed using `SearchEngine`.
-3. Files are displayed with icons.
-4. A background thread monitors changes.
-5. Analytics are calculated recursively.
-6. Smart search queries use the indexed data.
-
----
-
-## Architecture Overview
-
-* **UI Layer** – `main.py`
-* **Search Engine** – Handles indexing and searching
-* **Background Watcher** – Monitors folder changes via QThread
-* **Analytics Module** – Calculates size and file counts
-* **AI Sorter (Optional Extension)** – File categorization logic
-* **Cloud Sync (Optional Extension)** – Future cloud integration
-
----
-
-## Known Improvements
-
-* Connect unused modules (`cloud_sync.py`, `ai_sorter.py`)
-* Improve error handling for invalid folders
-* Add stop button for background watcher
-* Use `Analytics` class instead of manual calculation
-* Implement full AI auto-sorting workflow
-
----
-
-## License
-
-This project is for educational and development purposes.
+```
