@@ -13,5 +13,6 @@
         "Videos": "C:\\Users\\saidm\\Videos",
         "Audio": "C:\\Users\\saidm\\Music"
     },
-    "sort_by_extension": true
+    "sort_by_extension": true,
+    "dashboard_db_path": "C:\\Users\\saidm\\OneDrive\\Documents\\VS code\\FreelanceDashboard\\data\\freelance.db"
 }
